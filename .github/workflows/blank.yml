@@ -34,10 +34,3 @@ jobs:
 
     - name: Run tests
       run: 'npm test'
-      
-    - name: is-my-node-vulnerable
-      uses: RafaelGSS/is-my-node-vulnerable@v1.3.0
-      with:
-          node-version: 20
-            
-  
