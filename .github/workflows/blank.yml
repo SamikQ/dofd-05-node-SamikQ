@@ -12,10 +12,25 @@ jobs:
   permanent_actions:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v4
       with:
-        node-version: 20
+        node-version: 18
         cache: 'npm'
-    - run: npm ci
-    - run: npm test
+        
+    - name: Node version
+      run: "node -version"
+
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+       ref: main
+
+    - name: Show directory
+      run: 'ls -al'
+
+    - name: Install Dependencies
+      run: 'npm install'
+
+    - name: Run tests
+      run: 'npm test'
